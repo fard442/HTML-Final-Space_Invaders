@@ -39,7 +39,7 @@ export class Game {
 
     update(){
         console.log("In Game");
-        this.drawSpace()
+        this.drawSpace();
         this.pushStars();
         this.moveStars();
         this.pencil.font = "20px Georgia"
