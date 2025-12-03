@@ -6,7 +6,7 @@ export class Star {
     speed = 1;
     pencil;
     canvas;
-
+    
     constructor(pencil, canvas){
         this.pencil = pencil;
         this.canvas = canvas;
@@ -15,7 +15,6 @@ export class Star {
     }
 
     draw(pencil){
-        
         this.pencil.beginPath();
         this.pencil.arc(this.x, this.y, this.size * this.sizeMult, 0, 2*Math.PI);
         this.pencil.fillStyle="white";

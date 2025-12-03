@@ -17,7 +17,7 @@ let gameOver = new GameOver(canvas, pencil)
 let title = new Title(canvas, pencil)
 
 
-let state = title
+let state = game
 
 
 
