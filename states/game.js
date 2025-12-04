@@ -56,8 +56,8 @@ export class Game {
         this.pushStars();
         this.moveStars();
         this.player.drawPlayer();
-        this.pencil.font = "20px Georgia"
-        this.pencil.fillText("Game", 10, 50)
+        // this.pencil.font = "20px Georgia"
+        // this.pencil.fillText("Game", 10, 50)
     }
 
     

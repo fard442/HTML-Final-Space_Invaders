@@ -2,6 +2,7 @@ import { Game } from "./states/game.js"
 import { GameOver } from "./states/gameOver.js"
 import { Title } from "./states/title.js"
 import { Toolbox } from "./toolbox.js"
+import { laser } from "./laser.js"
 
 
 
@@ -11,12 +12,12 @@ let toolbox = new Toolbox()
 
 
 
-
+let beam = new laser()
 let game = new Game(canvas, pencil)
 let gameOver = new GameOver(canvas, pencil)
 let title = new Title(canvas, pencil)
 
-let state = game
+let state = title
 
 
 function gameLoop(){
@@ -50,20 +51,34 @@ function gameLoop(){
 function onKeyPressed(event){
     let isLeftPushed = event.key == "a"
     let isRightPushed = event.key == "d"
-    
+    let isRightArrowPushed = event.key == "ArrowRight"
+    let isLeftArrowPushed = event.key == "ArrowLeft"
+    let isSpacePressed = event.key == " "
+    let killBind = event.key == "k"
+   
+    if(killBind){
+        state = gameOver
+    }
     
 
-    if(isLeftPushed){
+    if(isLeftPushed || isLeftArrowPushed){
         game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
         game.player.moveLeft();
         game.player.drawPlayer();
-    } else if (isRightPushed){
+    } else if (isRightPushed || isRightArrowPushed){
         game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
         game.player.moveRight();
         game.player.drawPlayer()
     }
+
+    if(isSpacePressed){
+        if (state == game){
+            setInterval(beam.shoot, 1000)
+        }
+    }
 }
 
 document.addEventListener("keydown", onKeyPressed);
+
 setInterval(gameLoop, 1000 / 60)
 

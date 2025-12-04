@@ -18,16 +18,16 @@ export class Title{
         this.canvas = canvas
         this.pencil = pencil
 
-        this.onKeyPressed = this.onKeyPressed.bind(this)
+        // this.onKeyPressed = this.onKeyPressed.bind(this)
         this.onClicked = this.onClicked.bind(this)
 
         document.addEventListener("keypress", this.onKeyPressed)
         document.addEventListener("click", this.onClicked)
     }
 
-    onKeyPressed(){
-        this.changeToGame = true;
-    }
+    // onKeyPressed(){
+    //     this.changeToGame = true;
+    // }
 
     onClicked(event){
         let isHitButton = this.toolbox.isWithinRect(
