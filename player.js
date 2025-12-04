@@ -5,7 +5,7 @@ export class Player {
     pencil;
     canvas;
     x=200;
-    y=200;
+    y=400;
     width=50;
     height=50;
     speed=30;
@@ -16,20 +16,16 @@ export class Player {
     }
 
     moveLeft() {
-        this.x -= 30;
-        console.log("this = " + this.x)
+        this.x -= this.speed;
     }
     moveRight() {
-        this.x += 30;
-        console.log("this = " + this.x)
+        this.x += this.speed;
     }
     
 
     drawPlayer(){
         this.pencil.fillStyle='yellow';
         this.pencil.fillRect(this.x, this.y, this.width, this.height);
-        // console.log(this);
-        // console.log(this.x+"test")
     }
 
 

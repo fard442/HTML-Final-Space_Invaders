@@ -34,10 +34,19 @@ function gameLoop(){
         state = game
     }
 
+    //sets player y low
+    game.player.y = canvas.clientHeight - 100
 
-    
-    // console.log(onKeyPressed)
+    //checks player on edges
+    if (game.player.x + 50 > canvas.clientWidth + 75){
+        game.player.x = canvas.clientWidth - canvas.clientWidth;
+    } 
+    if (game.player.x - 50 < canvas.clientWidth - 650){
+        game.player.x = canvas.clientWidth;
+    }
 }
+
+//controls for player
 function onKeyPressed(event){
     let isLeftPushed = event.key == "a"
     let isRightPushed = event.key == "d"
@@ -47,15 +56,14 @@ function onKeyPressed(event){
     if(isLeftPushed){
         game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
         game.player.moveLeft();
-        game.player.drawPlayer()
-        // console.log(player.x)
-        // console.log(player)
+        game.player.drawPlayer();
     } else if (isRightPushed){
         game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
         game.player.moveRight();
         game.player.drawPlayer()
     }
 }
+
 document.addEventListener("keydown", onKeyPressed);
 setInterval(gameLoop, 1000 / 60)
 
