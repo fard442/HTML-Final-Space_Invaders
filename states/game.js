@@ -45,13 +45,14 @@ export class Game {
 
 //game gode
 
+    //bing
 
 
 
     
     //big chillin gameloop code
     update(){
-        console.log("In Game");
+        // console.log("In Game");
         this.drawSpace();
         this.pushStars();
         this.moveStars();
