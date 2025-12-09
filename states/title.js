@@ -40,7 +40,7 @@ export class Title{
 
 
     update(){
-        console.log("on title")
+        // console.log("on title")
             this.pencil.fillStyle = "red";
             this.pencil.font = "50px Georgia";
             this.pencil.fillText("BIGTEST", 200, 90);

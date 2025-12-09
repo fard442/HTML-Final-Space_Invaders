@@ -1,8 +1,10 @@
 import { Game } from "./states/game.js"
 import { GameOver } from "./states/gameOver.js"
+import { GameWin } from "./states/gameWin.js"
 import { Title } from "./states/title.js"
 import { Toolbox } from "./toolbox.js"
-import { laser } from "./laser.js"
+import { laserEnemy } from "./assets/laserEnemy.js"
+import { laserPlayer } from "./assets/laserPlayer.js"
 
 
 
@@ -12,12 +14,14 @@ let toolbox = new Toolbox()
 
 
 
-let beam = new laser()
+let beamRed = new laserEnemy()
+let beamBlue = new laserPlayer()
 let game = new Game(canvas, pencil)
 let gameOver = new GameOver(canvas, pencil)
+let gameWin = new GameWin(canvas, pencil)
 let title = new Title(canvas, pencil)
 
-let state = title
+let state = game
 
 
 function gameLoop(){
@@ -33,6 +37,9 @@ function gameLoop(){
     }
     if(command == "game"){
         state = game
+    }
+    if(command == "gameWin"){
+        state = gameWin
     }
 
     //sets player y low
@@ -55,9 +62,14 @@ function onKeyPressed(event){
     let isLeftArrowPushed = event.key == "ArrowLeft"
     let isSpacePressed = event.key == " "
     let killBind = event.key == "k"
+    let winBind = event.key == "w"
    
     if(killBind){
         state = gameOver
+    }
+
+    if(winBind){
+        state = gameWin
     }
     
 
@@ -73,7 +85,7 @@ function onKeyPressed(event){
 
     if(isSpacePressed){
         if (state == game){
-            setInterval(beam.shoot, 1000)
+            setInterval(beamBlue.shoot, 1000)
         }
     }
 }

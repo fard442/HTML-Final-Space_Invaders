@@ -1,5 +1,5 @@
-import { Star } from "../background.js"
-import { Player } from "../player.js"
+import { Star } from "../assets/background.js"
+import { Player } from "../assets/player.js"
 export class Game {
     canvas;
     pencil;

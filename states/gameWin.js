@@ -1,4 +1,4 @@
-export class GameOver {
+export class GameWin {
 
     canvas;
     pencil;
@@ -10,10 +10,10 @@ export class GameOver {
 
 
     update(){
-        // console.log("in Game Over")
+        // console.log("in Game Win")
         this.pencil.font = "20px Georgia";
-        this.pencil.fillStyle = "red"
-        this.pencil.fillText("Game Over", 10, 50)
+        this.pencil.fillStyle = "green"
+        this.pencil.fillText("Game Won", 10, 50)
     }
 
     

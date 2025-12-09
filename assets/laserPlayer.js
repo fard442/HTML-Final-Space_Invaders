@@ -1,5 +1,5 @@
-export class laser {
-    color;
+export class laserPlayer {
+    color='blue';
     x;
     y;
 
@@ -14,5 +14,6 @@ export class laser {
 
     shoot(){
         console.log("Firing Barrage!")
+
     }
 }

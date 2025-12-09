@@ -1,7 +1,7 @@
 export class Player {
     hit = false;
     lives = 3;
-    isShooting = false;
+    // isShooting = false;
     pencil;
     canvas;
     x=200;
