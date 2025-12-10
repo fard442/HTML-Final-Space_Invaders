@@ -54,9 +54,6 @@ export class Game {
 
 //game gode
 
-    //bing
-
-
 
     
     //big chillin gameloop code
@@ -67,7 +64,9 @@ export class Game {
         this.player.drawPlayer();
         this.enemy.drawEnemy();
 
-        this.laserPlayer.drawPlayerLaser()
+        this.enemy.moveEnemyRight();
+        
+        // this.laserPlayer.drawPlayerLaser()
         
         // this.pencil.font = "20px Georgia"
         // this.pencil.fillText("Game", 10, 50)

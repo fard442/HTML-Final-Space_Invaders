@@ -5,7 +5,7 @@ export class Enemy {
     y=0;
     width=200;
     height=100;
-    speed=20;
+    speed=5;
     hit=false;
 
     constructor(pencil, canvas){
@@ -14,7 +14,12 @@ export class Enemy {
     }
 
 
-
+    moveEnemyLeft() {
+        this.x -= this.speed;
+    }
+    moveEnemyRight() {
+        this.x += this.speed;
+    }
 
 
 

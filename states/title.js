@@ -40,19 +40,27 @@ export class Title{
 
 
     update(){
-        // console.log("on title")
-            this.pencil.fillStyle = "red";
-            this.pencil.font = "50px Georgia";
-            this.pencil.fillText("Outerspace Assailants", 50, 90);
+        this.pencil.fillStyle = 'black'
+        this.pencil.fillRect(0,0,this.canvas.width, this.canvas.height)
+        //name of game text
+        this.pencil.fillStyle = "red";
+        this.pencil.font = "50px Georgia";
+        this.pencil.fillText("Outerspace Assailants", 50, 90);
 
-            //green button
-            this.pencil.drawImage(startButton, this.startButtonX, this.startButtonY, this.startButtonW, this.startButtonH);
+        //controls text
+        this.pencil.fillStyle = "blue";
+            this.pencil.font = "25px Georgia";
+            this.pencil.fillText("A and D or Left and Right Arrows to move.", 50, 425);
+            this.pencil.fillText("After clicking start, press Space to begin assault.", 50, 450);
 
-            if(this.changeToGame){
-                this.changeToGame = false;
-                return "game";
-            }
+        //green button
+        this.pencil.drawImage(startButton, this.startButtonX, this.startButtonY, this.startButtonW, this.startButtonH);
+
+        if(this.changeToGame){
+            this.changeToGame = false;
+            return "game";
         }
+    }
         
 
 } 

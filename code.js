@@ -15,7 +15,7 @@ pencil.imageSmoothingEnabled = false;
 
 let toolbox = new Toolbox()
 
-let playerLaser = new laserPlayer(canvas, pencil)
+let playerLaser = new laserPlayer(pencil, canvas)
 
 
 let game = new Game(canvas, pencil)
@@ -54,6 +54,14 @@ function gameLoop(){
     if (game.player.x - 50 < canvas.clientWidth - 650){
         game.player.x = canvas.clientWidth;
     }
+
+    //checks enemy on edge
+    if (game.enemy.x + 50 > canvas.clientWidth + 75){
+        game.enemy.x = canvas.clientWidth - canvas.clientWidth - 5;
+    } 
+    if (game.enemy.x - 25 < canvas.clientWidth - 650){
+        game.enemy.x = canvas.clientWidth;
+    }
 }
 
 //controls for player
@@ -88,7 +96,8 @@ function onKeyPressed(event){
     if(isSpacePressed){
         if (state == game){
             setInterval(playerLaser.shoot, 1000)
-            // playerLaser.drawPlayerLaser();
+            
+            playerLaser.drawPlayerLaser();
         }
     }
 }
