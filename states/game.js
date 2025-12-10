@@ -1,5 +1,8 @@
 import { Star } from "../assets/background.js"
 import { Player } from "../assets/player.js"
+import { Enemy } from "../assets/enemy.js";
+// import { laserPlayer } from "../assets/laserPlayer.js";
+import { laserEnemy } from "../assets/laserEnemy.js";
 export class Game {
     canvas;
     pencil;
@@ -10,6 +13,12 @@ export class Game {
         this.pencil = pencil;
         this.star = new Star(this.pencil, this.canvas);
         this.player = new Player(this.pencil, this.canvas);
+        this.enemy = new Enemy(this.pencil, this.canvas);
+        this.laserEnemy = new laserEnemy(this.pencil, this.canvas);
+        // this.laserPlayer = new laserPlayer(this.pencil, this.canvas);
+
+        //enemy additon area
+        
     }
 
     //star section
@@ -56,6 +65,8 @@ export class Game {
         this.pushStars();
         this.moveStars();
         this.player.drawPlayer();
+        this.enemy.drawEnemy();
+        
         // this.pencil.font = "20px Georgia"
         // this.pencil.fillText("Game", 10, 50)
     }

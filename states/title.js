@@ -7,10 +7,10 @@ export class Title{
     changeToGame=false;
     toolbox = new Toolbox();
 
-    startButtonX=250;
+    startButtonX=200;
     startButtonY=200;
-    startButtonW=100;
-    startButtonH=50;
+    startButtonW=200;
+    startButtonH=200;
     //stars setup
     
 
@@ -43,13 +43,10 @@ export class Title{
         // console.log("on title")
             this.pencil.fillStyle = "red";
             this.pencil.font = "50px Georgia";
-            this.pencil.fillText("BIGTEST", 200, 90);
+            this.pencil.fillText("Outerspace Assailants", 50, 90);
 
-            this.pencil.fillStyle = "green";
-            this.pencil.fillRect(
-                this.startButtonX, this.startButtonY,
-                this.startButtonW, this.startButtonH
-            );
+            //green button
+            this.pencil.drawImage(startButton, this.startButtonX, this.startButtonY, this.startButtonW, this.startButtonH);
 
             if(this.changeToGame){
                 this.changeToGame = false;

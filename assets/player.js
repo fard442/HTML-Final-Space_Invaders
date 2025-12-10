@@ -1,13 +1,12 @@
 export class Player {
     hit = false;
     lives = 3;
-    // isShooting = false;
     pencil;
     canvas;
     x=200;
     y=400;
-    width=50;
-    height=50;
+    width=100;
+    height=100;
     speed=30;
     
     constructor(pencil, canvas){
@@ -22,10 +21,10 @@ export class Player {
         this.x += this.speed;
     }
     
-
+    //grabs picture for player
+    playerModel = document.getElementById("playerShip")
     drawPlayer(){
-        this.pencil.fillStyle='yellow';
-        this.pencil.fillRect(this.x, this.y, this.width, this.height);
+        this.pencil.drawImage(playerShip, this.x, this.y, this.width, this.height);
     }
 
 

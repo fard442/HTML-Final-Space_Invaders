@@ -3,19 +3,21 @@ import { GameOver } from "./states/gameOver.js"
 import { GameWin } from "./states/gameWin.js"
 import { Title } from "./states/title.js"
 import { Toolbox } from "./toolbox.js"
-import { laserEnemy } from "./assets/laserEnemy.js"
 import { laserPlayer } from "./assets/laserPlayer.js"
+import { laserEnemy } from "./assets/laserEnemy.js"
+
 
 
 
 let canvas = document.getElementById("myCanvas")
 let pencil = canvas.getContext("2d")
+pencil.imageSmoothingEnabled = false;
+
 let toolbox = new Toolbox()
 
+let playerLaser = new laserPlayer(canvas, pencil)
 
 
-let beamRed = new laserEnemy()
-let beamBlue = new laserPlayer()
 let game = new Game(canvas, pencil)
 let gameOver = new GameOver(canvas, pencil)
 let gameWin = new GameWin(canvas, pencil)
@@ -74,18 +76,18 @@ function onKeyPressed(event){
     
 
     if(isLeftPushed || isLeftArrowPushed){
-        game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
+        // game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
         game.player.moveLeft();
         game.player.drawPlayer();
     } else if (isRightPushed || isRightArrowPushed){
-        game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
+        // game.player.pencil.clearRect(game.player.x, game.player.y, game.player.width, game.player.height)
         game.player.moveRight();
-        game.player.drawPlayer()
+        game.player.drawPlayer();
     }
 
     if(isSpacePressed){
         if (state == game){
-            setInterval(beamBlue.shoot, 1000)
+            setInterval(playerLaser.shoot, 1000)
         }
     }
 }
