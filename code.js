@@ -88,6 +88,7 @@ function onKeyPressed(event){
     if(isSpacePressed){
         if (state == game){
             setInterval(playerLaser.shoot, 1000)
+            // playerLaser.drawPlayerLaser();
         }
     }
 }

@@ -6,6 +6,8 @@ export class laserPlayer {
     width=50;
     height=75;
     velocity;
+    pencil;
+    canvas;
 
     constructor(pencil, canvas){
         this.pencil = pencil;
@@ -14,17 +16,20 @@ export class laserPlayer {
         this.toolbox = new Toolbox();
     }
     playerLaserModel = document.getElementById("playerLaser")
-
+    
 
     drawPlayerLaser(){
-        this.pencil.drawImage(playerLaser, this.player.x + 25, this.player.y + 125, this.width, this.height);
-        console.log(this.player.x)
+        console.log("worked");
+        this.pencil.drawImage(playerLaser, this.x, this.y, this.width, this.height);
     }
+
+    // this.drawPlayerLaser();
 
 
     shoot(){
         console.log("Firing Barrage!")
+        // console.log(this.pencil)
         // console.log()
-        this.drawPlayerLaser();
+        // this.drawPlayerLaser();
     }
 }
